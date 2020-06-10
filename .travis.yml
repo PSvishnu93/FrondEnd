@@ -1,3 +1,4 @@
+language: generic
 sudo: required
 services:
   - docker
@@ -6,4 +7,4 @@ before_install:
   - docker buid -t frondend -f Dockerfile.dev .
 
 script:
-  - docker run frondend npm run test -- --coverage
+  - docker run -e CI=true frondend npm run test -- --coverage
